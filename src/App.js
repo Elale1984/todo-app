@@ -31,7 +31,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <h1>:⌚Welcome to Your TODO App With React :⌚</h1>
+      <h2 style={{color: "lime"}}>Time is on your side</h2>
 
       <form>
 
