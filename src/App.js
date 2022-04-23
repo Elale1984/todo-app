@@ -1,23 +1,61 @@
-import logo from './logo.svg';
+import { Button, FormControl, Input, InputLabel } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import Todo from './Todo';
+
 import './App.css';
 
 function App() {
+  //state (short term memory)
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState('');
+
+  //when app loads, need to listen to db and update ui when they are added or removed
+  useEffect(() => {
+    // When app loads this code runs
+   
+  }, []);
+
+
+  const addTodo = (event) => {
+    //stop REFRESH
+    event.preventDefault();
+    // This will fire when we click the button
+    setTodos([...todos, input]);
+    
+    //Reset field to blank
+    setInput(''); 
+
+
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello World</h1>
+
+      <form>
+
+
+        <FormControl>
+          <InputLabel> ✅ Write  A Todo</InputLabel>
+          <Input value={input} onChange={event => setInput(event.target.value)}/>
+        </FormControl>
+
+        <Button disabled={!input} type="submit" onClick={addTodo} variant="contained" 
+          color="primary">
+            Add Event
+        </Button>
+        
+        
+      </form>
+      
+      <ul>
+        {todos.map(todo => (
+
+          <Todo text={todo}/>
+        
+        ))}
+      </ul>
     </div>
   );
 }
