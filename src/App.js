@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     // When app loads this code runs
    
-  }, []);
+  }, [input]);
 
 
   const addTodo = (event) => {
