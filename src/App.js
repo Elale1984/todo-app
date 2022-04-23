@@ -1,7 +1,7 @@
 import { Button, FormControl, Input, InputLabel } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Todo from './Todo';
-import db from './firebase';
+//import db from './firebase';
 import './App.css';
 
 function App() {
@@ -12,10 +12,7 @@ function App() {
   //when app loads, need to listen to db and update ui when they are added or removed
   useEffect(() => {
     // When app loads this code runs
-   db.collection('text').onSnapshot(snapshot => {
-     console.log(snapshot.docs.map(doc => doc.data()));
-     //setTodos(snapshot.docs.map(doc => doc.data().todo))
-   })
+    
   }, []);
 
 
@@ -34,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>:⌚Welcome to Your TODO App With React :⌚</h1>
+      <h1>⌚ Welcome to Your TODO App With React ⌚</h1>
       <h2 style={{color: "lime"}}>Time is on your side</h2>
 
       <form>
